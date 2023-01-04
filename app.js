@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const url = 'mongodb://localhost/AlienDBex'
+const url = 'mongodb://localhost/ToDoDB'
 
 const app = express()
 
@@ -22,10 +22,10 @@ con.on('open', () => {
 app.use(express.json())
 
 // its kind of variable for the given path/file
-const alienRouter = require('./routes/aliens')
+const toDoRouter = require('./routes/ToDoRoutes')
 // for all the "/alients" request, sends the request to alienRouter 
 // variable which is defined above
-app.use('/aliens',alienRouter)
+app.use('/todo',toDoRouter)
 
 app.listen(9000, () => {
     console.log('Server started')
